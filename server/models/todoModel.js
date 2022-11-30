@@ -1,4 +1,4 @@
-const mongoose = requier("mongoose");
+const mongoose = require("mongoose");
 
 const todoSchema = new mongoose.Schema({
    text: {
@@ -6,3 +6,4 @@ const todoSchema = new mongoose.Schema({
       required: true,
    },
 });
+module.exports = mongoose.model("ToDo", todoSchema);

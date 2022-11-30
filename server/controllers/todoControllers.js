@@ -1,8 +1,12 @@
-const toDoModel = require("../models/todoModel");
+const toDoModel = require("../models/toDoModel");
 
-const getToDo = async (req, res) => {
-   const Todo = await toDoModel.find();
-   res.send(Todo);
+const index = (req, res) => {
+   res.send("we are live on the server")
+}
+async function getToDo(req, res) {
+   const ToDo = await toDoModel.find();
+   res.send(ToDo);
+   res.status(404).end();
 }
 const saveToDo = async (req, res) => {
    const { text } = req.body;
@@ -27,6 +31,7 @@ const updateToDo = (req, res) => {
 }
 
 module.exports = {
+   index,
    getToDo,
    saveToDo,
    deleteToDo,
